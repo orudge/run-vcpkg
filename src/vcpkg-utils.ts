@@ -116,6 +116,11 @@ export class Utils {
 
     key += "-args=" + Utils.hashCode(core.getInput(runvcpkglib.vcpkgArguments));
     key += "-os=" + Utils.hashCode(process.platform);
+
+    if (process.env.ImageVersion) {
+      key += "-imageVer=" + Utils.hashCode(process.env.ImageVersion);
+    }
+
     key += "-appendedKey=" + Utils.hashCode(appendedCacheKey);
 
     // Add the triplet only if it is provided.
